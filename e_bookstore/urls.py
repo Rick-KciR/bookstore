@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from book_store_app import urls as e_book_store_urls
+from book_store_app import urls as book_store_app_urls
+from accounts import urls as accounts_urls
 
 urlpatterns = [
-        path('', include(e_book_store_urls)),
+        path("", include(book_store_app_urls)),
+        path("", include(accounts_urls)),
         path('admin/', admin.site.urls),
 
 ]

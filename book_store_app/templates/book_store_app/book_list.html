@@ -1,0 +1,34 @@
+{% extends 'book_store_app/modelo.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>Livros</title>
+{% endblock %}
+
+{% block prominence %}
+
+{% endblock %}
+
+{% block content %}
+<div class="bg-light">
+    <h1>Produtos</h1>
+
+    <ul>
+        {% for book in Book %}
+        <li><a href="{% url 'url_update' book.id %}">{{book.book_title}} - {{book.price}}</a></li>
+        <ul>
+            {% for author in book.author.all %}
+                <li>{{author.name_author}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+
+<a href="{% url 'url_new' %}"><button type="submit"> Adicionar </button></a>
+</div>
+
+{% endblock %}
+
+
+
